@@ -5,7 +5,8 @@
 local fs = require('efmls-configs.fs')
 
 local formatter = 'clang-format'
-local command = string.format("%s -", fs.executable(formatter))
+local args = string.format('--style %s', 'file:' .. vim.g.tool_config_path .. '/clang-format/clang-format.config')
+local command = string.format("%s %s -", fs.executable(formatter), args)
 
 return {
   formatCommand = command,
